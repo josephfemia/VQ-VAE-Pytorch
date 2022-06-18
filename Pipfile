@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://download.pytorch.org/whl/cu113"
+verify_ssl = false
+name = "pytorch"
+
+[packages]
+matplotlib = "*"
+numpy = "*"
+notebook = "*"
+jupyterlab = "*"
+ipynb = "*"
+ipykernel = "*"
+ipywidgets = "*"
+torch = {index = "pytorch", "version" = "==1.11.0+cu113"}
+torchvision = {index = "pytorch", "version" = "==0.12.0+cu113"}
+torchaudio = {index = "pytorch", "version" = "==0.11.0+cu113"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
