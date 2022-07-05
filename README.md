@@ -34,8 +34,12 @@ I tried my best to re-create the encoder and decoder from the paper, but there m
 ![Model Architechture](./model_visualisation/vqvae.png)
 Credit: https://arxiv.org/pdf/1711.00937.pdf
 
+## Image Generation
+
+In order to train and use the PixelCNN that is described in the paper for image generation, first you need a fully trained VQ-VAE model. After that has been trained you can train the PixelCNN on the encoding indicies. These are the indicies that relate the encoded image to the codebook. The goal of the PixelCNN is to learn the distribution of what encoding indicies come after all previous pixels within each of the kernels. Then we can sample from that distribution for image generation. The PixelCNN has been recreated from [Pixel Recurrent Neural Networks](https://arxiv.org/pdf/1601.06759.pdf).
+
+Credit: https://arxiv.org/pdf/1601.06759.pdf
+
 ## Future Improvements
 
-There are a few improvements and implementations that could still be added to this project to better the reconstruction. One thing that could definately be improved is my implementation of the encoder and decoder models. It sppears that right now they might not be extracting enough information for a higher quality reconstruction. Another way to protentially improve reconstruction would be to either increase the embedding dimensions or amount of embeddings. 
-
-This repo in its current state is only setup for image reconstruction and the PixelCNN has not been implemented for image generation.
+There are a few improvements and implementations that could still be added to this project to better the reconstruction. One thing that could definately be improved is my implementation of the encoder and decoder models. It appears that right now they might not be extracting enough information for a higher quality reconstruction. Another way to protentially improve reconstruction would be to either increase the embedding dimensions or amount of embeddings. The final improvement I suggest would be more residual layers within the PixelCNN and maybe changing the filter size to hopefully gain more coherent and quality images during image generation.
